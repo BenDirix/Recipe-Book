@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    <h3 class="text-center">{{ loginMode ? 'Log in' : 'Register a new account'}}</h3>
+    <hr>
+    <!-- <div class="alert alert-danger text-center" *ngIf="error">
+      <p>{{ error }}</p>
+    </div> -->
+    <!-- <app-alert [message]="error" *ngIf="error" (close)="onCloseError()"></app-alert> -->
+    <ng-template appPlaceholder></ng-template>
+
+    <div *ngIf="isLoading" style="text-align: center;">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+      <div class="form-group">
+        <!-- <label for="email"></label> -->
+        <input name="email" type="email" id="email" class="nes-input is-dark" placeholder="E-Mail" ngModel required
+          email>
+      </div>
+      <div class="form-group">
+        <!-- <label for="password"></label> -->
+        <input name="password" type="password" id="password" class="nes-input is-dark" placeholder="Password" ngModel
+          required minlength="6">
+      </div>
+
+      <div class="text-center">
+        <button style="width: 80%" class="nes-btn" type="submit" [disabled]="!authForm.valid"
+          [ngClass]="!authForm.valid ? 'is-disabled' : 'is-primary'">
+          {{ loginMode ? 'Log in' : 'Register' }}
+        </button>
+      </div>
+      <hr>
+      <div class="text-center">
+        <a style="cursor: pointer;" (click)="onSwitchMode()">
+          {{ loginMode ? "Don't have an account yet?" : "Already have an account?" }}
+        </a>
+      </div>
+
+    </form>
+  </div>
+</div>

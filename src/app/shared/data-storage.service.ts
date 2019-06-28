@@ -5,7 +5,6 @@ import { Recipe } from '../recipes/recipe.model';
 import { map, tap, take, exhaustMap } from 'rxjs/operators'
 import { AuthService } from '../auth/auth.service';
 import { environment } from 'src/environments/environment';
-import firebaseLink from 'src/assets/firebaseLink';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +16,11 @@ export class DataStorageService {
   }
 
   saveRecipe() {
-    return this.http.put(firebaseLink + "recipes.json", this.recipeService.getRecipes());
+    return this.http.put(environment.firebaseLink + "recipes.json", this.recipeService.getRecipes());
   }
 
   loadRecipes() {
-    return this.http.get<Recipe[]>(firebaseLink + 'recipes.json').pipe(
+    return this.http.get<Recipe[]>(environment.firebaseLink + 'recipes.json').pipe(
       map(recipes => {
         return recipes.map(recipe => {
           return {

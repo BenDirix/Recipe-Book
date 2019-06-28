@@ -4,7 +4,6 @@ import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import firebaseLink from 'src/assets/firebaseLink';
 
 @Injectable({
   providedIn: 'root'

@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseLink: 'https://ng-recipe-book-19c99.firebaseio.com/',
+  SignInEndpoint: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyDc-rh9rXi591yo2fRGwMQcWwu6GLMehZU',
+  SignUpEndpoint: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyDc-rh9rXi591yo2fRGwMQcWwu6GLMehZU',
 };
 
 /*

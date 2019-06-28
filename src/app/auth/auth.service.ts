@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import SignUpEndpoint from 'src/assets/signupEndpoint';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, Subject, BehaviorSubject } from 'rxjs';
-import SignInEndpoint from 'src/assets/signInEndpoint';
 import { User } from './user.model';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 export interface AuthResponseData {
   kind: string,
@@ -29,7 +28,7 @@ export class AuthService {
   }
 
   signUp(email: string, password: string) {
-    return this.http.post<AuthResponseData>(SignUpEndpoint, {
+    return this.http.post<AuthResponseData>(environment.SignUpEndpoint, {
       email: email,
       password: password,
       returnSecureToken: true,
@@ -43,7 +42,7 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<AuthResponseData>(SignInEndpoint, {
+    return this.http.post<AuthResponseData>(environment.SignInEndpoint, {
       email: email,
       password: password,
       returnSecureToken: true,

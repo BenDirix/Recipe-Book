@@ -20,11 +20,6 @@ import { CoreModule } from './core.module';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    // AuthComponent
-    // DropDownDirective,
-    // LoadingSpinnerComponent,
-    // AlertComponent,
-    // PlaceholderDirective,
   ],
   imports: [
     BrowserModule,
